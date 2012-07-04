@@ -11,7 +11,7 @@ dist:
 rpm: clean dist
 	mkdir -p $(rpmbuild_dir)/BUILD $(rpmbuild_dir)/RPMS $(rpmbuild_dir)/SOURCES $(rpmbuild_dir)/SPECS $(rpmbuild_dir)/SRPMS
 	cp voms-test-ca-$(version).tar.gz $(rpmbuild_dir)/SOURCES
-	rpmbuild --nodeps -v -ba $(spec) --define "_topdir $(rpmbuild_dir)"
+	rpmbuild --nodeps -v -bb $(spec) --define "_topdir $(rpmbuild_dir)"
 	
 clean:
 	rm -rf voms-test-ca-$(version).tar.gz $(rpmbuild_dir)

@@ -24,7 +24,7 @@ This package provides a test CA useful to implement functionality and
 regression tests.
 
 %prep
-%setup -q 
+%setup -c 
 
 %build
 # Nothing to build
