@@ -26,3 +26,6 @@ test5.cert.pem:
 
 three_spaces.cert.pem:
     a certificate with three spaces encoded in the last CN of the subject.
+
+VO_Admin.cert.pem:
+    a certificate that can be used as the VO admin for text fixture setup/teardown.
