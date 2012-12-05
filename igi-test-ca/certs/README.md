@@ -10,6 +10,10 @@ expired.cert.pem:
 no_basic_constraints.cert.pem:
     a certificate missing the basic constraints extension.
 
+dn_with_email.cert.pem:
+	a certificate which has the deprecated emailAddress field in the subject.
+	Note: the private key for this certificate is not encrypted.
+
 no_key_usage.cert.pem:
     a certificate missing the key usage and extended key usage extensions.
 
