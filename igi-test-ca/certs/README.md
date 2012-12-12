@@ -14,6 +14,9 @@ dn_with_email.cert.pem:
 	a certificate which has the deprecated emailAddress field in the subject.
 	Note: the private key for this certificate is not encrypted.
 
+dn_with_parenthesis.cert.pem:
+	a certificate which has parenthesis in the CN.
+
 no_key_usage.cert.pem:
     a certificate missing the key usage and extended key usage extensions.
 
