@@ -40,7 +40,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
-* Fri Jan 11 2012 Andrea Ceccanti <andrea.ceccanti at cnaf.infn.it> - 1.0.1-1
+* Fri Jan 11 2013 Andrea Ceccanti <andrea.ceccanti at cnaf.infn.it> - 1.0.1-1
 - Fixed wrong signing policy files
 
 * Wed Jul 04 2012 Andrea Ceccanti <andrea.ceccanti at cnaf.infn.it> - 1.0.0-1
