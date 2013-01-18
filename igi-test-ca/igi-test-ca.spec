@@ -1,5 +1,5 @@
 Name: igi-test-ca
-Version: 1.0.0
+Version: 1.0.1
 Release: 1%{?dist}
 Summary: A test CA for IGI
 
@@ -40,6 +40,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
+* Fri Jan 11 2013 Andrea Ceccanti <andrea.ceccanti at cnaf.infn.it> - 1.0.1-1
+- Fixed wrong signing policy files
 
 * Wed Jul 04 2012 Andrea Ceccanti <andrea.ceccanti at cnaf.infn.it> - 1.0.0-1
 - Initial release
