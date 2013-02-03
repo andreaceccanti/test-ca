@@ -31,7 +31,8 @@ mkdir -p $RPM_BUILD_ROOT%{_datadir}/%{name}/custom-crls
 install -m 644 -p %{name}.* $RPM_BUILD_ROOT%{_sysconfdir}/grid-security/certificates
 install -m 644 -p *.0 *.r0 *.signing_policy *.namespaces $RPM_BUILD_ROOT%{_sysconfdir}/grid-security/certificates
 install -m 644 -p certs/custom-crls/* $RPM_BUILD_ROOT%{_datadir}/%{name}/custom-crls
-install -m 644 -p certs/* $RPM_BUILD_ROOT%{_datadir}/%{name}
+install -m 644 -p certs/*.pem $RPM_BUILD_ROOT%{_datadir}/%{name}
+install -m 644 -p certs/*.p12 $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
