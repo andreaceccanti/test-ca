@@ -1,5 +1,5 @@
 Name: igi-test-ca
-Version: 1.0.1
+Version: 1.0.2
 Release: 1%{?dist}
 Summary: A test CA for IGI
 
@@ -26,9 +26,11 @@ regression tests for the IGI middleware.
 rm -rf $RPM_BUILD_ROOT
 mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/grid-security/certificates
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/%{name}
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/%{name}/custom-crls
 
 install -m 644 -p %{name}.* $RPM_BUILD_ROOT%{_sysconfdir}/grid-security/certificates
 install -m 644 -p *.0 *.r0 *.signing_policy *.namespaces $RPM_BUILD_ROOT%{_sysconfdir}/grid-security/certificates
+install -m 644 -p custom-crls/* $RPM_BUILD_ROOT%{_datadir}/%{name}/custom-crls
 install -m 644 -p certs/* $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 %clean
@@ -40,6 +42,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
+* Fri Feb 01 2013 Andrea Ceccanti <andrea.ceccanti at cnaf.infn.it> - 1.0.2-1
+- New custom CRLs that revoke the test0 cert.
+
 * Fri Jan 11 2013 Andrea Ceccanti <andrea.ceccanti at cnaf.infn.it> - 1.0.1-1
 - Fixed wrong signing policy files
 
