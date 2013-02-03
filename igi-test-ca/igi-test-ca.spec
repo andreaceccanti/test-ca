@@ -1,6 +1,6 @@
 Name: igi-test-ca
 Version: 1.0.2
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: A test CA for IGI
 
 Group: Applications/Internet
