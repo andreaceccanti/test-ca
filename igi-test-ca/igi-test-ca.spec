@@ -30,7 +30,7 @@ mkdir -p $RPM_BUILD_ROOT%{_datadir}/%{name}/custom-crls
 
 install -m 644 -p %{name}.* $RPM_BUILD_ROOT%{_sysconfdir}/grid-security/certificates
 install -m 644 -p *.0 *.r0 *.signing_policy *.namespaces $RPM_BUILD_ROOT%{_sysconfdir}/grid-security/certificates
-install -m 644 -p custom-crls/* $RPM_BUILD_ROOT%{_datadir}/%{name}/custom-crls
+install -m 644 -p certs/custom-crls/* $RPM_BUILD_ROOT%{_datadir}/%{name}/custom-crls
 install -m 644 -p certs/* $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 %clean
@@ -42,6 +42,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
+* Sun Feb 03 2013 Andrea Ceccanti <andrea.ceccanti at cnaf.infn.it> - 1.0.2-2
+- Repackaged custom CRLs to better fit with testsuite
+
 * Fri Feb 01 2013 Andrea Ceccanti <andrea.ceccanti at cnaf.infn.it> - 1.0.2-1
 - New custom CRLs that revoke the test0 cert.
 
