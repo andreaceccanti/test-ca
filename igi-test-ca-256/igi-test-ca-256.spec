@@ -1,4 +1,4 @@
-Name: igi-test-ca-spec
+Name: igi-test-ca-256
 Version: 1.0.0
 Release: 1%{?dist}
 Summary: A SHA 256 test CA for IGI
