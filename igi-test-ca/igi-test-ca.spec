@@ -1,6 +1,6 @@
 Name: igi-test-ca
-Version: 1.0.2
-Release: 2%{?dist}
+Version: 1.0.3
+Release: 1%{?dist}
 Summary: A test CA for IGI
 
 Group: Applications/Internet
@@ -43,6 +43,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
+* Tue Sep 17 2013 Andrea Ceccanti <andrea.ceccanti at cnaf.infn.it> - 1.0.3-1
+- New certificates for load testing + keystores
+
 * Sun Feb 03 2013 Andrea Ceccanti <andrea.ceccanti at cnaf.infn.it> - 1.0.2-2
 - Repackaged custom CRLs to better fit with testsuite
 

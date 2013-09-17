@@ -1,5 +1,6 @@
-CERTIFICATE INVENTORY
-=====================
+# Certificates description
+
+## Test certificates
 
 - apostrofe.cert.pem: 
     
@@ -41,3 +42,10 @@ CERTIFICATE INVENTORY
 - VO_Admin.cert.pem:
 
 	a certificate that can be used as the VO admin for text fixture setup/teardown.
+
+## Load test certificates
+
+- load[0-19].cert.pem
+    
+    load test certificates (also in p12 and ks formats). Notice that the password
+    for these certificate is different.
