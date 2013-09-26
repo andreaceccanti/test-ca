@@ -1,5 +1,5 @@
 Name: igi-test-ca
-Version: 1.0.3
+Version: 1.0.4
 Release: 1%{?dist}
 Summary: A test CA for IGI
 
@@ -43,6 +43,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
+* Tue Sep 26 2013 Andrea Ceccanti <andrea.ceccanti at cnaf.infn.it> - 1.0.4-1
+- New CRL valid for ten years.
+
 * Tue Sep 17 2013 Andrea Ceccanti <andrea.ceccanti at cnaf.infn.it> - 1.0.3-1
 - New certificates for load testing + keystores
 
