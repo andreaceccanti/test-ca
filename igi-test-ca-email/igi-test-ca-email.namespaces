@@ -1,0 +1,5 @@
+TO Issuer "/C=IT/O=IGI/CN=email Test CA/emailAddress=andrea.ceccanti@cnaf.ifn.it" \
+    PERMIT Subject "/C=it/O=IGI/.*"
+
+TO Issuer "/C=IT/O=IGI/CN=email Test CA/emailAddress=andrea.ceccanti@cnaf.infn.it" \
+    PERMIT Subject "/C=IT/O=IGI/.*"

@@ -1,4 +1,4 @@
-SUBDIRS = voms-test-ca igi-test-ca igi-test-ca-256
+SUBDIRS = voms-test-ca igi-test-ca igi-test-ca-256 igi-test-ca-email
 CLEANDIRS = $(SUBDIRS:%=clean-%)
 
 .PHONY: subdirs $(SUBDIRS)
