@@ -1,6 +1,6 @@
 Name: igi-test-ca-256
 Version: 1.0.0
-Release: 2%{?dist}
+Release: 3%{?dist}
 Summary: A SHA 256 test CA for IGI
 
 Group: Applications/Internet
@@ -41,6 +41,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
+* Tue Apr 29 2014 Andrea Ceccanti <andrea.ceccanti at cnaf.infn.it> - 1.0.0-3
+- Default 10 years CRL.
+
 * Tue Apr 29 2014 Andrea Ceccanti <andrea.ceccanti at cnaf.infn.it> - 1.0.0-2
 - Fix namespaces and signing policy files.
 
