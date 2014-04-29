@@ -1,5 +1,5 @@
 TO Issuer "/C=IT/O=IGI/CN=Test CA (SHA 256)" \
-    PERMIT Subject "/C=it/O=IGI/OU=SHA 256/.*"
+    PERMIT Subject "/C=it/O=IGI/.*"
 
 TO Issuer "/C=IT/O=IGI/CN=Test CA (sha256)" \
-    PERMIT Subject "/C=IT/O=IGI/OU=SHA 256/.*"
+    PERMIT Subject "/C=IT/O=IGI/.*"
