@@ -6,7 +6,7 @@ rpmbuild_dir=$(shell pwd)/rpmbuild
 all: rpm
 
 dist: 
-	tar cvzf voms-test-ca-$(version).tar.gz *.pem *.crl *.0 *.r0 *.signing_policy certs
+	tar cvzhf voms-test-ca-$(version).tar.gz *.pem *.crl *.0 *.r0 *.signing_policy certs
 
 rpm: clean dist
 	mkdir -p $(rpmbuild_dir)/BUILD $(rpmbuild_dir)/RPMS $(rpmbuild_dir)/SOURCES $(rpmbuild_dir)/SPECS $(rpmbuild_dir)/SRPMS
