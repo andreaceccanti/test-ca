@@ -43,9 +43,22 @@
 
 	a certificate that can be used as the VO admin for text fixture setup/teardown.
 
+### SHA-2 test certificates
+
+- Test0__sha512_.cert.pem: 
+
+  a SHA-512 test certificate.
+
+
 ## Load test certificates
 
 - load[0-19].cert.pem
     
     load test certificates (also in p12 and ks formats). Notice that the password
     for these certificate is different.
+
+## cloud-vm certificates
+
+- cloud-vmXX.cert.pem
+    
+    host certificates for cloud-vm machines.

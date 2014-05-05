@@ -1,5 +1,5 @@
 Name: igi-test-ca
-Version: 1.0.5
+Version: 1.0.6
 Release: 1%{?dist}
 Summary: A test CA for IGI
 
@@ -43,6 +43,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
+* Mon May 05 2014 Andrea Ceccanti <andrea.ceccanti at cnaf.infn.it> - 1.0.6-1
+- New certificates.
+
 * Wed Apr 30 2014 Andrea Ceccanti <andrea.ceccanti at cnaf.infn.it> - 1.0.5-1
 - New certificates.
 
