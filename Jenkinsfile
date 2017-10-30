@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
 pipeline {
-    agent { label 'generic' }
+    agent { label 'centos6-umd4' }
     options {
         buildDiscarder(logRotator(numToKeepStr: '5'))
         timeout(time: 1, unit: 'HOURS')
@@ -16,7 +16,11 @@ pipeline {
         stage('make') {
             steps {
                 sh 'make'
-                archiveArtifacts '**/*.rpm,**/*.tar.gz'
+                dir('/tmp/artifacts') {
+                    sh "find ${env.WORKSPACE} -iname *.rpm -exec mv {} . \\;"
+                    sh "find ${env.WORKSPACE} -iname *.tar.gz -exec mv {} . \\;"
+                    archiveArtifacts '**'
+                }
             }
         }
         stage('result') {
