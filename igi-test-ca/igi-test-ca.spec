@@ -1,6 +1,6 @@
 Name: igi-test-ca
-Version: 1.0.6
-Release: 1%{?dist}
+Version: 2.0.0
+Release: 0%{?dist}
 Summary: A test CA for IGI
 
 Group: Applications/Internet
@@ -43,6 +43,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
+* Fri Dec 01 2017 Andrea Ceccanti <andrea.ceccanti at cnaf.infn.it> - 2.0.0-0
+Add new CA certificate for the same CA
 * Mon May 05 2014 Andrea Ceccanti <andrea.ceccanti at cnaf.infn.it> - 1.0.6-1
 - New certificates.
 
