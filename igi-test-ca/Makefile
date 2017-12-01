@@ -7,7 +7,7 @@ rpmbuild_dir=$(shell pwd)/rpmbuild
 all: rpm
 
 dist: 
-	tar cvzhf $(name)-$(version).tar.gz *.pem *.crl *.0 *.r0 *.signing_policy *.namespaces certs 
+	tar cvzhf $(name)-$(version).tar.gz *.pem *.crl *.0 *.1 *.r0 *.r1 *.signing_policy *.namespaces certs 
 
 rpm: clean dist
 	mkdir -p $(rpmbuild_dir)/BUILD $(rpmbuild_dir)/RPMS $(rpmbuild_dir)/SOURCES $(rpmbuild_dir)/SPECS $(rpmbuild_dir)/SRPMS
