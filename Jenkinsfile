@@ -10,16 +10,20 @@ pipeline {
     stages {
         stage('clean') {
             steps {
-                sh 'make clean'
+                container('generic-runner'){
+                    sh 'make clean'
+                }
             }
         }
         stage('make') {
             steps {
-                sh 'make'
-                dir('/tmp/artifacts') {
-                    sh "find ${env.WORKSPACE} -iname *.rpm -exec mv {} . \\;"
-                    sh "find ${env.WORKSPACE} -iname *.tar.gz -exec mv {} . \\;"
-                    archiveArtifacts '**'
+                container('generic-runner'){
+                    sh 'make'
+                    dir('/tmp/artifacts') {
+                        sh "find ${env.WORKSPACE} -iname *.rpm -exec mv {} . \\;"
+                        sh "find ${env.WORKSPACE} -iname *.tar.gz -exec mv {} . \\;"
+                        archiveArtifacts '**'
+                    }
                 }
             }
         }
