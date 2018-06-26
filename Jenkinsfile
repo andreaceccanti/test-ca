@@ -26,17 +26,12 @@ pipeline {
     stage('archive') {
       steps {
         container('generic-runner'){
-          dir("${env.WORKDIR}") {
-            sh "find ${env.WORKSPACE} -iname *.rpm -exec mv {} . \\;"
-            sh "find ${env.WORKSPACE} -iname *.tar.gz -exec mv {} . \\;"
-            archiveArtifacts '**'
-          }
+          sh "mkdir -p ${env.WORKDIR} ."
+          sh "cd  ${env.WORKDIR}"
+          sh "find ${env.WORKSPACE} -iname *.rpm -exec mv {} . \\;"
+          sh "find ${env.WORKSPACE} -iname *.tar.gz -exec mv {} . \\;"
+          archiveArtifacts '**'
         }
-      }
-    }
-    stage('result') {
-      steps {
-        script { currentBuild.result = 'SUCCESS' }
       }
     }
   }
@@ -47,7 +42,7 @@ pipeline {
     }
     changed {
       script{
-        if('SUCCESS'.equals(currentBuild.result)) {
+        if('SUCCESS'.equals(currentBuild.currentResult)) {
           slackSend color: 'good', message: "${env.JOB_NAME} - #${env.BUILD_NUMBER} Back to normal (<${env.BUILD_URL}|Open>)"
         }
       }
