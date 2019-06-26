@@ -1,7 +1,18 @@
 #!/usr/bin/env groovy
 
+@Library('sd')_
+def kubeLabel = getKubeLabel()
+
 pipeline {
-  agent { label 'generic' }
+
+  agent {
+    kubernetes {
+      label "${kubeLabel}"
+      cloud 'Kube mwdevel'
+      defaultContainer 'runner'
+      inheritFrom 'ci-template'
+    }
+  }
 
   options {
 	buildDiscarder(logRotator(numToKeepStr: '5'))
@@ -17,21 +28,17 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        container('generic-runner'){
-          sh 'make clean'
-          sh 'make'
-        }
+        sh 'make clean'
+        sh 'make'
       }
     }
     stage('archive') {
       steps {
-        container('generic-runner'){
-          sh "mkdir -p ${env.WORKDIR} ."
-          sh "cd  ${env.WORKDIR}"
-          sh "find ${env.WORKSPACE} -iname *.rpm -exec mv {} . \\;"
-          sh "find ${env.WORKSPACE} -iname *.tar.gz -exec mv {} . \\;"
-          archiveArtifacts '**'
-        }
+        sh "mkdir -p ${env.WORKDIR} ."
+        sh "cd  ${env.WORKDIR}"
+        sh "find ${env.WORKSPACE} -iname *.rpm -exec mv {} . \\;"
+        sh "find ${env.WORKSPACE} -iname *.tar.gz -exec mv {} . \\;"
+        archiveArtifacts '**'
       }
     }
   }
