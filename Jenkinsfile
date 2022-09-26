@@ -1,19 +1,9 @@
 #!/usr/bin/env groovy
 
-@Library('sd')_
-def kubeLabel = getKubeLabel()
-
 pipeline {
 
-  agent {
-    kubernetes {
-      label "${kubeLabel}"
-      cloud 'Kube mwdevel'
-      defaultContainer 'runner'
-      inheritFrom 'ci-template'
-    }
-  }
-
+  agent { label 'java11' }
+  
   options {
 	buildDiscarder(logRotator(numToKeepStr: '5'))
 	timeout(time: 1, unit: 'HOURS')
@@ -22,7 +12,7 @@ pipeline {
   triggers { cron('@daily') }
 
   environment {
-    WORKDIR = "/srv/scratch/${env.BUILD_TAG}/artifacts"
+    WORKDIR = "/tmp/${env.BUILD_TAG}/artifacts"
   }
 
   stages {
