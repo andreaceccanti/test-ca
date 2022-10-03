@@ -16,6 +16,12 @@ pipeline {
   }
 
   stages {
+    stage('clean') {
+      steps {
+        cleanWs()
+        checkout scm
+      }
+    }
     stage('build') {
       steps {
         sh 'make clean'
@@ -24,11 +30,31 @@ pipeline {
     }
     stage('archive') {
       steps {
-        sh "mkdir -p ${env.WORKDIR} ."
-        sh "cd  ${env.WORKDIR}"
-        sh "find ${env.WORKSPACE} -iname *.rpm -exec mv {} . \\;"
-        sh "find ${env.WORKSPACE} -iname *.tar.gz -exec mv {} . \\;"
-        archiveArtifacts '**'
+        sh "mkdir -p ${env.WORKDIR}"
+        dir('voms-test-ca') {
+          sh "cp *.tar.gz ${env.WORKDIR}"
+          sh "cp rpmbuild/RPMS/noarch/*.rpm ${env.WORKDIR}"
+        }
+        dir('igi-test-ca') {
+          sh "cp *.tar.gz ${env.WORKDIR}"
+          sh "cp rpmbuild/RPMS/noarch/*.rpm ${env.WORKDIR}"
+        }
+        dir('igi-test-ca-2') {
+          sh "cp *.tar.gz ${env.WORKDIR}"
+          sh "cp rpmbuild/RPMS/noarch/*.rpm ${env.WORKDIR}"
+        }
+        dir('igi-test-ca-256') {
+          sh "cp *.tar.gz ${env.WORKDIR}"
+          sh "cp rpmbuild/RPMS/noarch/*.rpm ${env.WORKDIR}"
+        }
+        dir('igi-test-ca-email') {
+          sh "cp *.tar.gz ${env.WORKDIR}"
+          sh "cp rpmbuild/RPMS/noarch/*.rpm ${env.WORKDIR}"
+        }
+        dir("${env.WORKDIR}") {
+          sh "ls -l ."
+          archiveArtifacts '**'
+        }
       }
     }
   }
