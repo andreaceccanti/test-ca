@@ -1,5 +1,5 @@
 Name: igi-test-ca
-Version: 2.0.0
+Version: 3.0.0
 Release: 0%{?dist}
 Summary: A test CA for IGI
 
@@ -43,8 +43,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
+* Mon Oct 03 2022 Enrico Vianello <enrico.vianello at cnaf.infn.it> - 3.0.0-0
+- Renew CA and several expired test certificates
+
 * Fri Dec 01 2017 Andrea Ceccanti <andrea.ceccanti at cnaf.infn.it> - 2.0.0-0
-Add new CA certificate for the same CA
+- Add new CA certificate for the same CA
+
 * Mon May 05 2014 Andrea Ceccanti <andrea.ceccanti at cnaf.infn.it> - 1.0.6-1
 - New certificates.
 
