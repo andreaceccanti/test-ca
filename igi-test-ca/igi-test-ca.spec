@@ -1,5 +1,5 @@
 Name: igi-test-ca
-Version: 3.0.2
+Version: 3.0.3
 Release: 0%{?dist}
 Summary: A test CA for IGI
 
@@ -43,6 +43,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}/*
 
 %changelog
+* Tue Nov 30 2022 Francesco Giacomini <francesco.giacomini@cnaf.infn.it> - 3.0.3-0
+- Add correct CRL
+
 * Tue Nov 29 2022 Enrico Vianello <enrico.vianello at cnaf.infn.it> - 3.0.2-0
 - Added revoked certificate and crl + star certificate
 
